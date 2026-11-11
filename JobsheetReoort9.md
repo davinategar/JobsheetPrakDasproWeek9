@@ -49,11 +49,11 @@ public class NumberArray07 {
 
 **Questions:**
 
-1. If the elements of the numbers array are changed to 5.0, 12867, 7.5, 2000000, what happens? Why does this happen?
+1. If the elements of the numbers array are changed to ```5.0, 12867, 7.5, 2000000```, what happens? Why does this happen?
 
     Answer: when i want to run the program it will be error, because in my code i input it ```int``` so when i writhe those numbers it will causes error. If we want to get output those numbers, we have to use ```double```.
 
-2. Modify the program above by initializing the array elements at the same time the array is declared (without new int[4] and without filling the elements one by one)
+2. Modify the program above by initializing the array elements at the same time the array is declared (without new ```int[4]``` and without filling the elements one by one)
 
    Code:
 
@@ -85,8 +85,20 @@ public class NumberArray07 {
 
 3. Change the display statement in step 4 to the following: ```System.out.println("numbers[" + i + "] = " +numbers[i] + ", doubled = " + (numbers[i] * 2));``` What is the output of the program? Explain themeaning of the statement.
 
-   Answer: This line is used to display each array element along with the result of multiplying it by 2.
+   Answer: This line is used to display each array element along with the result            of multiplying it by 2.
 
    Result:
-
    
+    ![result-experiment1-2-jobsheet9](result-experiment1-2-jobsheet9.png)
+
+4. If the condition in the for loop above is changed to ```i <= 4```, what is the output of the program? Why?
+
+   Answer: The program will produce an ArrayIndexOutOfBoundsException because                the array has only 4 elements, with indexes from 0 to 3. When i                  becomes 4, the program tries to access ```numbers[4]```, which does              not exist. Therefore, the program stops before executing the next                loops.
+
+5. What is the difference between displaying an array using a for loop, a foreach loop, andArrays.toString() in step 5? When should each one be used?
+
+   Answer: The for loop uses an index to access array elements, while the                   foreach loop accesses each element directly without using an index.              Arrays.toString() displays all array elements in one line. A for loop            is useful when we need the index, a foreach loop is useful when we               only need to read the elements, and Arrays.toString() is useful for d            isplaying the entire array quickly.
+
+## Experiment 2: SIAKAD Case Study — Entering Student Scores and Pass/Fail Status  
+
+The code:
