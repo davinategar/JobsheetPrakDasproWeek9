@@ -101,4 +101,163 @@ public class NumberArray07 {
 
 ## Experiment 2: SIAKAD Case Study — Entering Student Scores and Pass/Fail Status  
 
-The code:
+**The code:**
+
+```
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ScoreArrayp07 {
+    public static void main(String[] args) {
+        int[] finalScores = new int[10];
+        Scanner input = new Scanner(System.in);
+        
+        for (int i = 0; i < finalScores.length; i++) {
+            System.out.print("Enter score for student #" + (i + 1) + ": ");
+            finalScores[i] = input.nextInt();
+        }
+
+        for (int i = 0; i < finalScores.length; i++){
+            String status = (finalScores[i] > 70) ? "PASS" : "FAIL";
+            System.out.println("Student #" + (i + 1) + " score: " + finalScores[i] + " - " + status);
+        }
+    }
+}
+```
+
+**The Result:** 
+
+![result-experiment2-1-jobsheet9](result-experiment2-1-jobsheet9.png)
+
+**Questions**
+
+1. What does the condition ```i < finalScores.length``` in the loop above mean?
+
+   Answer: The condition ```i < finalScores.length``` means that the loop will continue as long as the value of ```i``` is              smaller than the length of the array. The array finalScores contains 10 elements, so finalScores.length is 10.               The loop starts from ```i = 0``` and stops when i = 10.
+
+2. Modify the program so that it displays only the scores of students who passed (score > 70), without displaying those who failed. Explain the flow of the program!
+
+   Answer: The Code
+
+   ```
+   import java.util.Arrays;
+   import java.util.Scanner;
+
+    public class Exper {
+    public static void main(String[] args) {
+        int[] finalScores = new int[10];
+        Scanner input = new Scanner(System.in);
+
+        for (int i = 0; i < finalScores.length; i++) {
+            System.out.print("Enter score for student #" + (i + 1) + ": ");
+            finalScores[i] = input.nextInt();
+        }
+
+        for (int i = 0; i < finalScores.length; i++) {
+            if (finalScores[i] > 70) {
+                System.out.println("Student #" + (i + 1)
+                        + " score: " + finalScores[i] + " - PASS");
+            }
+        }
+    }
+    }
+   ```
+
+   Result:
+
+   ![result-experiment2-2-jobsheet9](result-experiment2-2-jobsheet9.png)
+
+   Explanation:
+
+   * First, the program creates an array to store 10 student scores.
+   * The first for loop asks the user to enter scores for all 10 students.
+   * The second for loop checks each student's score.
+   * The if condition checks whether the score is greater than 70.
+   * If the condition is true, the program displays the student's score and PASS status.
+   * If the condition is false, the program skips that student and continues to the next one.
+
+3. Change the loops in steps 4 and 5 from for loops to foreach loops. Can all parts of the program be converted to foreach? Explain which parts can and cannot be converted, along with the reasons.
+
+   Answer: The Code:
+   
+   ```
+   import java.util.Arrays;
+   import java.util.Scanner;
+
+    public class Experiment2Question4 {
+    public static void main(String[] args) {
+        int[] finalScores = new int[10];
+        Scanner input = new Scanner(System.in);
+
+        for (int i = 0; i < finalScores.length; i++) {
+            System.out.print("Enter score for student #" + (i + 1) + ": ");
+            finalScores[i] = input.nextInt();
+        }
+
+        int studentNumber = 1;
+
+        for (int score : finalScores) {
+            String status = (score > 70) ? "PASS" : "FAIL";
+
+            System.out.println("Student #" + studentNumber
+                    + " score: " + score + " - " + status);
+
+            studentNumber++;
+        }
+    }
+    }
+   ```
+
+   Result:
+   ![result-experiment2-3-jobsheet9](result-experiment2-3-jobsheet9.png)
+
+   Explanation:
+
+   No, not all parts of the program can be converted to foreach loops.
+
+   * The first loop cannot be directly converted into foreach because it is used to store input values into specific array        positions. A foreach loop does not provide direct access to array indexes for assigning values.
+   * The second loop can be converted into foreach because it only reads and displays the scores stored in the array. It          does not need to change the array values.
+
+   The variable studentNumber is used to display the student number because foreach does not automatically provide the array    index.
+
+4. Modify the program so that it also calculates and displays the number of students who passed and the number of students who failed at the end of the program.
+
+   Answer: The Code:
+
+   ```   
+    import java.util.Scanner;
+
+    public class Experiment2Question4 {
+    public static void main(String[] args) {
+        int[] finalScores = new int[10];
+        Scanner input = new Scanner(System.in);
+
+        int passCount = 0;
+        int failCount = 0;
+
+        for (int i = 0; i < finalScores.length; i++) {
+            System.out.print("Enter score for student #" + (i + 1) + ": ");
+            finalScores[i] = input.nextInt();
+        }
+
+        for (int i = 0; i < finalScores.length; i++) {
+            if (finalScores[i] > 70) {
+                System.out.println("Student #" + (i + 1)
+                        + " score: " + finalScores[i] + " - PASS");
+                passCount++;
+            } else {
+                System.out.println("Student #" + (i + 1)
+                        + " score: " + finalScores[i] + " - FAIL");
+                failCount++;
+            }
+        }
+
+        System.out.println("\nTotal students passed: " + passCount);
+        System.out.println("Total students failed: " + failCount);
+    }
+    }
+   ```
+
+   Result:
+
+   ![result-experiment2-4-jobsheet9](result-experiment2-4-jobsheet9.png)
